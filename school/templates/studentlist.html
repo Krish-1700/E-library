@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+th{
+background:red !important;
+}
+</style>
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+    <h3 class="text-center mt-3">Student List</h3>
+    <table class="table table-bordered table-secondary border-success">
+
+       <tr>
+           <th>Student name</th>
+           <th>Student age</th>
+           <th>School name</th>
+           <th>School location</th>
+           <th>School principal</th>
+        </tr>
+
+        <tr>
+            {% for i in stu %}
+            <td>{{i.name}}</td>
+            <td>{{i.age}}</td>
+            <td>{{i.school.name}}</td>
+            <td>{{i.school.location}}</td>
+            <td>{{i.school.principal}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {{name}}
+    {{school}}
+</div>
+{% endblock %}

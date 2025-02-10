@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+    <h3 class="text-center mt-3">School List</h3>
+    <form method="POST">
+        {% csrf_token %}
+   {% for i in school %}
+        <ul>
+            <li class="mt-4"><a href="{% url 'SchoolDetail' i.id %}">{{i.name}}</a></li>
+        </ul>
+    </form>
+    {% endfor %}
+</div>
+{% endblock %}
