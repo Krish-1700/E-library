@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+  {% block title %}
+    <title>Factorial</title>
+  {% endblock %}
+{% block content %}
+ <form method="POST">
+    {% csrf_token %}
+  <div class="mb-3 mt-3 mx-5">
+    <label class="form-label">Factorial of a number</label>
+    <input type="number" class="form-control" name="n" placeholder="Enter number">
+  </div>
+     <div class="mb-3 mt-3 ms-5">
+
+    <input type="submit" class="btn-btn-outline-danger fw-bold">
+  </div>
+ </form>
+
+
+{% if fact %}
+factorial is:{{fact}}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+  {% block title %}
+    <title>Edit</title>
+  {% endblock %}
+{% block content %}
+<div class="container w-50 mx-auto">
+  <h2 class="text-center mt-2">Add Book Details</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="mb-3 mt-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" name="t" value="{{book.title}}" placeholder="Enter title">
+  </div>
+   <div class="mb-3 mt-3">
+    <label class="form-label">Author</label>
+    <input type="text" class="form-control" name="a" value="{{book.author}}" placeholder="Enter Author">
+  </div>
+   <div class="mb-3 mt-3">
+    <label class="form-label">Price</label>
+    <input type="number" class="form-control" name="p" value="{{book.price}}"  placeholder="Enter Price">
+  </div>
+   <div class="mb-3 mt-3">
+    <label class="form-label">Pages</label>
+    <input type="number" class="form-control" name="pg" value="{{book.pages}}"  placeholder="Enter Pages">
+  </div>
+   <div class="mb-3 mt-3">
+    <label class="form-label">Language</label>
+    <input type="text" class="form-control" name="l" value="{{book.language}}" placeholder="Enter Language">
+  </div>
+       <div class="mb-3 mt-3">
+    <label class="form-label">Image</label>
+           <img src="{{book.image.url}}" height="100px" width="100px">
+    <input type="file" class="form-control" name="i">
+  </div>
+       <div class="mb-3 mt-3">
+    <label class="form-label">Pdf</label>
+           <a href="{{book.pdf}}">Download</a>
+    <input type="file" class="form-control" name="f">
+  </div>
+   <div class="mb-5 mt-5">
+
+    <input type="submit" class="btn-btn-outline-danger fw-bold">
+  </div>
+</form>
+
+
+
+</div>
+
+
+{% endblock %}
