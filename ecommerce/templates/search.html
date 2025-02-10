@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block background %}
+{% endblock %}
+
+{% block content %}
+
+{% if find.exists %}
+
+<h1 class="text-center">Search Results</h1>
+<div class="card mb-3 mx-auto mt-4 " style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+        {% csrf_token %}
+        {% for i in find %}
+      <a href="{% url 'shop:product' i.id %}"><img src="{{i.image.url}}" class="img-fluid rounded-start" alt="..."></a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Price:{{i.price}}</h5>
+        <p class="card-text"> Available Stock:{{i.stock}}</p>
+       <h4>Products Details</h4>
+          <p>{{i.desc}}</p>
+      </div>
+    </div>
+      {% endfor %}
+  </div>
+</div>
+{% else %}
+
+<h2>Not Found!</h2>
+
+{% endif %}
+
+{% endblock %}

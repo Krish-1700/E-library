@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block background %}
+
+{% endblock %}
+
+{% block content %}
+<h3 class="text-center">Order view</h3>
+ {% for i in orders %}
+<div class="container border border-2 border-light bg-dark shadow mt-5 p-5 w-50">
+<div class="card mx-auto" style="width: 18rem;">
+
+  <img src="{{i.product.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.product.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price:-{{i.product.price}}</li>
+    <li class="list-group-item">No.of items:-{{i.no_of_items}}</li>
+    <li class="list-group-item">Order_id:-{{i.order_id}}</li>
+      <li class="list-group-item">Delivery status:-{{i.delivery_Status}}</li>
+
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'shop:Detail' i.product.id %}" class="btn btn-outline-info mb-4">More about product</a>
+      <a href="{% url 'shop:home' %}" class="btn btn-outline-info ">Continue shopping</a>
+
+  </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
