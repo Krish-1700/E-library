@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 class="text-center mb-5 mt-2">ITEMS</h1>
+<div class="card d-block mx-auto" style="width: 18rem;">
+  <div class="card-header text-center fw-bold fs-4">
+    {{m.name}}
+  </div>
+  <ul class="list-group list-group-flush">
+    {% for i in m.items.all %}
+    <li class="list-group-item text-center">{{i.name}}</li>
+      <li class="list-group-item text-center"><a href="{% url 'update' i.id %}">update</a></li>
+
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+</body>
+</html>
